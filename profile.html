@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://Unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Profile</title>
+</head>
+<body>
+<div class="container" id="app">
+        <h2>Introduction</h2>
+    <p>
+        name:Shital,
+        sirname:Gaikwad,
+        DOB:8/12/1999,
+        class:TY BTech
+    </p>
+    <button type="button" class="btn btn-primary" @click="submit">Logout</button>
+
+</div>
+<script>
+        
+        const app = new Vue(
+            {
+                el: '#app',
+                methods:
+                    {
+                        submit() {
+                            console.log('here');
+                            axios.post('/logout').then(res=>
+                            {
+                                if(res.status===200) {
+                                    location.href = '/';
+    
+                                }
+                            }).catch(error=>{
+                                throw error;
+                            })
+    
+                        }
+                    }
+                }
+        )
+    
+   </script>
+
+</body>
+</html>
